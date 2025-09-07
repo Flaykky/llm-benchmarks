@@ -98,6 +98,11 @@ largest llm coding benchmark
 - Kimi k1.5 with thinking
 - Kimi k1.5 with web search + thinking
 
+9. Minimax chat
+
+10. Ollama
+
+11. Perplexity
 ## Tasks:
 
 ### 1) Algorithms — extreme optimization
