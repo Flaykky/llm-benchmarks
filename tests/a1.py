@@ -1,97 +1,126 @@
-#!/usr/bin/env python3
 import argparse
 import os
 import subprocess
-import tempfile
 import time
 import psutil
-import hashlib
+import tempfile
+import random
 
-# --- Graph generation (simple placeholder) ---
-def generate_graphs():
-    graphs = []
-    # tiny test
-    g1 = "10 9\n" + "\n".join(f"{i} {i+1} 1" for i in range(1, 10)) + "\n1\n1\n"
-    graphs.append(("linear_10.txt", g1))
-    # random test (placeholder, replace with real generator)
-    import random
-    n = 100
-    m = 300
-    edges = "\n".join(
-        f"{random.randint(1,n)} {random.randint(1,n)} {random.randint(1,100)}"
-        for _ in range(m)
-    )
-    g2 = f"{n} {m}\n{edges}\n1\n1\n"
-    graphs.append(("random_100.txt", g2))
-    return graphs
+# ------------------ Graph generator ------------------
+def generate_graph(n, m, k, filename):
+    with open(filename, 'w') as f:
+        f.write(f"{n} {m} {k}\n")
+        sources = random.sample(range(1, n + 1), k)
+        f.write(" ".join(map(str, sources)) + "\n")
+        edges = set()
+        while len(edges) < m:
+            u = random.randint(1, n)
+            v = random.randint(1, n)
+            if u != v:
+                w = random.randint(1, 1000)
+                edges.add((u, v, w))
+        for u, v, w in edges:
+            f.write(f"{u} {v} {w}\n")
 
-# --- run program, measure time and memory ---
-def run_program(executable, input_data):
-    with tempfile.NamedTemporaryFile(delete=False) as tmp_in:
-        tmp_in.write(input_data.encode())
-        tmp_in.flush()
-        tmp_in_name = tmp_in.name
+# ------------------ Run binary with measurement ------------------
+def run_binary(binary, graph_file, timeout=60):
+    with open(graph_file, 'r') as fin:
+        start = time.time()
+        proc = psutil.Popen([binary], stdin=fin, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        try:
+            max_mem = 0
+            while proc.is_running():
+                try:
+                    mem = proc.memory_info().rss
+                    max_mem = max(max_mem, mem)
+                except psutil.NoSuchProcess:
+                    break
+                time.sleep(0.01)
+            stdout, stderr = proc.communicate(timeout=timeout)
+            retcode = proc.wait()
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            return None, None, None, "timeout"
+        end = time.time()
+        return retcode, stdout.decode(), max_mem, end - start
 
-    start_time = time.perf_counter()
-    proc = psutil.Popen([executable],
-                        stdin=open(tmp_in_name, "rb"),
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.PIPE)
-    peak_memory = 0
-    try:
-        while proc.is_running():
-            try:
-                mem = proc.memory_info().rss
-                peak_memory = max(peak_memory, mem)
-            except psutil.NoSuchProcess:
-                break
-            time.sleep(0.01)
-    finally:
-        stdout, stderr = proc.communicate()
-    elapsed = time.perf_counter() - start_time
-    os.unlink(tmp_in_name)
-    return stdout.decode(errors="ignore"), stderr.decode(errors="ignore"), elapsed, peak_memory
+# ------------------ Reference checker ------------------
+def reference_solver(graph_file):
+    # Simple Dijkstra-based correctness checker (slow but fine for small graphs)
+    import heapq
+    with open(graph_file) as f:
+        n, m, k = map(int, f.readline().split())
+        sources = list(map(int, f.readline().split()))
+        adj = [[] for _ in range(n+1)]
+        for _ in range(m):
+            u, v, w = map(int, f.readline().split())
+            adj[u].append((v, w))
+    results = {}
+    for s in sources:
+        dist = [float('inf')] * (n+1)
+        dist[s] = 0
+        pq = [(0, s)]
+        while pq:
+            d, u = heapq.heappop(pq)
+            if d != dist[u]:
+                continue
+            for v, w in adj[u]:
+                if dist[v] > d + w:
+                    dist[v] = d + w
+                    heapq.heappush(pq, (dist[v], v))
+        results[s] = dist[1:]
+    return results
 
-# --- compare outputs (normalize whitespaces) ---
-def normalize_output(out):
-    return "\n".join(" ".join(line.split()) for line in out.strip().splitlines())
+# ------------------ Compare output ------------------
+def parse_output(text):
+    # Assume output: K lines, each N ints or -1 for INF
+    lines = [list(map(int, l.split())) for l in text.strip().splitlines()]
+    return lines
 
-def hash_output(out):
-    return hashlib.sha256(normalize_output(out).encode()).hexdigest()
+def compare_results(ref, out):
+    # Flatten ref and out for comparison
+    ref_lines = []
+    for s, dists in ref.items():
+        ref_lines.append([d if d < 10**9 else -1 for d in dists])
+    return ref_lines == out
 
+# ------------------ Main ------------------
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("executables", nargs="+", help="Paths to compiled binaries")
-    parser.add_argument("--generate", action="store_true", help="Generate graphs instead of using .txt files")
-    parser.add_argument("--graphs", nargs="*", help="Paths to .txt graphs")
-    parser.add_argument("--max-mem", type=int, default=150*1024*1024, help="Max allowed RAM (bytes)")
+    parser.add_argument('binaries', nargs='+')
+    parser.add_argument('--graph', help='Graph file to test')
+    parser.add_argument('--generate', action='store_true', help='Generate random graph')
+    parser.add_argument('--n', type=int, default=200, help='Vertices')
+    parser.add_argument('--m', type=int, default=1000, help='Edges')
+    parser.add_argument('--k', type=int, default=10, help='Sources')
     args = parser.parse_args()
 
-    if args.generate:
-        graphs = generate_graphs()
+    if args.graph:
+        graph_file = args.graph
     else:
-        graphs = []
-        for gpath in args.graphs:
-            with open(gpath, "r") as f:
-                graphs.append((os.path.basename(gpath), f.read()))
+        fd, graph_file = tempfile.mkstemp(suffix='.txt')
+        os.close(fd)
+        generate_graph(args.n, args.m, args.k, graph_file)
 
-    for gname, gdata in graphs:
-        print(f"\n=== Testing graph: {gname} (size: {len(gdata.splitlines())} lines) ===")
-        reference_hash = None
-        for exe in args.executables:
-            print(f"\n-> Testing {exe}:")
-            out, err, elapsed, peak_mem = run_program(exe, gdata)
-            h = hash_output(out)
-            if reference_hash is None:
-                reference_hash = h
-                truth_ok = True
-            else:
-                truth_ok = (h == reference_hash)
-            print(f"   [ {'✔' if truth_ok else '✖'} ] correctness check")
-            print(f"   [ {'✔' if peak_mem <= args.max_mem else '✖'} ] RAM usage: {peak_mem/1024/1024:.1f} MB (limit {args.max_mem/1024/1024:.1f} MB)")
-            print(f"   Time: {elapsed:.3f} s")
-            if err.strip():
-                print(f"   stderr: {err.strip()}")
+    ref = reference_solver(graph_file)
+
+    for binary in args.binaries:
+        print(f"\n>>> Testing {binary}")
+        ret, out, mem, t = run_binary(binary, graph_file)
+        if ret != 0:
+            print(f"[✘] Runtime error (code {ret})")
+            continue
+        try:
+            parsed = parse_output(out)
+            ok = compare_results(ref, parsed)
+        except Exception as e:
+            print(f"[✘] Output parse error: {e}")
+            ok = False
+        if ok:
+            print(f"[✔] Correctness passed")
+        else:
+            print(f"[✘] Wrong answer")
+        print(f"Time: {t:.3f}s, Max RSS: {mem/1024/1024:.1f} MB")
 
 if __name__ == "__main__":
     main()
