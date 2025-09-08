@@ -4,8 +4,10 @@ largest llm coding benchmark
 ***
 
   - [list of llm modeles](#LLM-models)
-  - [llm tasks](#Tasks)
-    - [A tasks](#1)-Algorithms-extreme-optimization) 
+  - [lanugages and tasks ideas](#Languages-and-tasks)
+  - [llm tasks prompts](#Tasks)
+    - [A tasks](#1)-Algorithms-extreme-optimization)
+    
 
 
 
@@ -116,8 +118,35 @@ largest llm coding benchmark
 
 11. Perplexity
 
+## Languages and tasks:
+tasks: 
+1. Algorithms that require very strong optimization
+2. Other computer science knowledge
+3. Frontend (next/react/pure js without frameworks)
+4. Tasks where you need to write very secure code
+5. Mobile development (android/ios)
+6. Backend
+7. Desktop (windows, Mac, Linux)
+8. Pentest protection tasks
+9. System programming
+10. Shell scripts
+11. gamedev (unreal engine, unity, godot)
+
+languages:
+1. Python - why: usually all llm models know python best
+2. C - why: working with memory, not allowing errors
+3. Rust - why: becoming popular and in demand
+4. C# - for windows applications, unity
+5. C + C++ for windows, Linux applications, unreal
+6. Kotlin - for android applications
+7. Java - backend, android, desktop
+8. Go - backend + network programming
+9. Lisp/haskell - FP base
+10. Bash - shell scripts
+11. assembly
+
     
-## Tasks
+## Tasks prompts
 
 ### 1) Algorithms — extreme optimization
 
