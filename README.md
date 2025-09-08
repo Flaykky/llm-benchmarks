@@ -1,6 +1,18 @@
 # llm-benchmarks
 largest llm coding benchmark
 
+***
+
+  - [list of llm modeles](#LLM-models)
+  - [llm tasks](#Tasks)
+    - [A tasks](#1-Algorithms-—-extreme-optimization) 
+
+
+
+
+
+
+
 ## LLM modeles 
 
 1. OpenAI:
@@ -103,7 +115,9 @@ largest llm coding benchmark
 10. Ollama
 
 11. Perplexity
-## Tasks:
+
+    
+## Tasks
 
 ### 1) Algorithms — extreme optimization
 
