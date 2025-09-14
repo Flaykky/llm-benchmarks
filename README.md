@@ -44,8 +44,6 @@
 ### 3. Qwen
 - Qwen3-Coder
 - Qwen3-Coder with Web Search
-- Qwen3-Coder-Flash
-- Qwen3-Coder-Flash with Web Search
 - Qwen3-30B-A3B-2507
 - Qwen3-30B-A3B-2507 with Web Search
 - Qwen3-30B-A3B-2507 with Thinking [81,920 tokens]
@@ -54,6 +52,8 @@
 - Qwen3-235B-A22B-2507 with Internet Search
 - Qwen3-235B-A22B-2507 with Thinking [81,920 tokens]
 - Qwen3-235B-A22B-2507 with Thinking + Web Search
+- Qwen3-Next-80B-A3B
+- Qwen3-Max-preview
 - Qwen2.5-Max
 - Qwen2.5-Max with Web Search
 - Qwen2.5-Max with Thinking
