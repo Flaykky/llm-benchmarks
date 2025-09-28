@@ -299,3 +299,7 @@ Default weights for evaluation categories:
 - Accept pseudocode/core proofs for very long tasks
 - Encourage inclusion of minimal unit tests within responses
 
+## license 
+
+Distributed under the MIT License. See [LICENSE](LICENSE) file for details.
+
