@@ -44,23 +44,87 @@ we will test many llms from 11 companies:
 - DeepSeek with Thinking + Web Search
 
 ### 3. Qwen
-- Qwen3-Max-preview
-- Qwen3-Max-preview with web search
+- Qwen3-Max
+- Qwen3-Max with web search
+
 - Qwen3-Coder
 - Qwen3-Coder with Web Search
+
+- Qwen3-Coder-Flash
+- Qwen3-Coder-Flash with Web Search
+
 - Qwen3-30B-A3B-2507
 - Qwen3-30B-A3B-2507 with Web Search
 - Qwen3-30B-A3B-2507 with Thinking [81,920 tokens]
 - Qwen3-30B-A3B-2507 with Thinking + Web Search
+- Qwen3-30B-A3B-2507 with Web Search
+
 - Qwen3-235B-A22B-2507
 - Qwen3-235B-A22B-2507 with Internet Search
 - Qwen3-235B-A22B-2507 with Thinking [81,920 tokens]
 - Qwen3-235B-A22B-2507 with Thinking + Web Search
+- Qwen3-235B-A22B-2507 with Web Search
+
 - Qwen3-Next-80B-A3B
+- Qwen3-Next-80B-A3B with Thinking [81,920 tokens]
+- Qwen3-Next-80B-A3B with Thinking + Web Search
+- Qwen3-Next-80B-A3B with web search
+
+- Qwen3-VL-235B-A22B
+- Qwen3-VL-235B-A22B with thinking [81.920 tokens]
+
+- Qwen3-VL-30B-A3B
+- Qwen3-VL-30B-A3B with thinking [81.920 tokens]
+
+- Qwen3-Omni-Flash
+- Qwen3-Omni-Flash with thinking [81.920 tokens]
+
+#### qwen2.5:
+
 - Qwen2.5-Max
 - Qwen2.5-Max with Web Search
 - Qwen2.5-Max with Thinking
-- Qwen2.5-Max with Thinking + Internet Search
+- Qwen2.5-Max with Thinking + web search
+
+- Qwen2.5-Plus
+- Qwen2.5-Plus with web search
+- Qwen2.5-Plus with thinking
+- Qwen2.5-Plus with thinking + web search
+
+- Qwen2.5-Turbo 
+- Qwen2.5-Turbo with web search
+- Qwen2.5-Turbo with thinking
+- Qwen2.5-Turbo with thinking + web search
+
+- Qwen2.5-Omni-7B 
+- Qwen2.5-Omni-7B with web search
+
+- Qwen2.5-VL-23B-Instruct
+- Qwen2.5-VL-23B-Instruct with web search
+- Qwen2.5-VL-23B-Instruct with thinking
+- Qwen2.5-VL-23B-Instruct with thinking + web search
+
+
+- Qwen2.5-14B-Instruct-1M 
+- Qwen2.5-14B-Instruct-1M with web search
+- Qwen2.5-14B-Instruct-1M with thinking
+- Qwen2.5-14B-Instruct-1M with thinking + web search
+
+- Qwen2.5-Coder-32B-Instruct
+- Qwen2.5-Coder-32B-Instruct with web search
+- Qwen2.5-Coder-32B-Instruct with thinking
+- Qwen2.5-Coder-32B-Instruct with thinking + web search
+
+- Qwen2.5-72B-Instruct 
+- Qwen2.5-72B-Instruct with web search
+- Qwen2.5-72B-Instruct with thinking
+- Qwen2.5-72B-Instruct with thinking + web search
+
+#### QwQ:
+- QwQ-32B
+- QwQ-32B with web search
+- QwQ-32B with thinking
+- QwQ-32B with thinking + web search
 
 ### 4. Grok
 - Grok3
