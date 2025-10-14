@@ -30,7 +30,7 @@
 
 we will test many llms from 11 companies:
 
-### 1. OpenAI
+### 1. [OpenAI](chatgpt.com)
 - GPT-5
 - GPT-5 + Think Deeper
 - GPT-5 + Web Search
