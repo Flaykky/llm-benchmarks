@@ -34,8 +34,9 @@ we will test many llms from 11 companies:
 - GPT-5
 - GPT-5 + Think Deeper
 - GPT-5 + Web Search
-- GPT-OSS-20B
-- GPT-OSS-120B
+
+- [GPT-OSS-20B](https://gpt-oss.com/)
+- [GPT-OSS-120B](https://gpt-oss.com/)
 
 ### 2. [DeepSeek](https://chat.deepseek.com/)
 - DeepSeek
@@ -126,7 +127,7 @@ we will test many llms from 11 companies:
 - QwQ-32B with thinking
 - QwQ-32B with thinking + web search
 
-### 4. Grok
+### 4. [Grok](https://grok.com/)
 - Grok3
 - Grok3 + DeepSearch
 - Grok4
@@ -134,7 +135,7 @@ we will test many llms from 11 companies:
 - Grok4 Heavy
 - Grok4 Heavy + DeepSearch
 
-### 5. Claude
+### 5. [Claude](https://claude.ai/)
 - Claude Sonnet 4.1
 - Claude Sonnet 4.1 with Web Search
 - Claude Sonnet 4.1 with Extended Thinking
@@ -158,16 +159,16 @@ we will test many llms from 11 companies:
 - Claude Haiku 3.5
 - Claude Haiku 3.5 with Extended Thinking
 
-### 6. Gemini
+### 6. [Gemini](https://aistudio.google.com/)
 - Gemini 2.5 Flash
 - Gemini 2.5 Pro
 
-### 7. Microsoft Copilot
+### 7. [Microsoft Copilot](https://copilot.microsoft.com/)
 - Copilot Fast Answer
 - Copilot Think Deeper
 - Copilot Smart (GPT-5)
 
-### 8. Kimi
+### 8. [Kimi](https://www.kimi.com/)
 - Kimi K2
 - Kimi K2 with Web Search
 - Kimi K1.5
@@ -179,7 +180,7 @@ we will test many llms from 11 companies:
 
 ### 10. Ollama
 
-### 11. Perplexity
+### 11. [Perplexity](https://www.perplexity.ai/)
 
 ---
 
