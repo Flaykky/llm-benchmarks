@@ -37,13 +37,13 @@ we will test many llms from 11 companies:
 - GPT-OSS-20B
 - GPT-OSS-120B
 
-### 2. DeepSeek
+### 2. [DeepSeek](https://chat.deepseek.com/)
 - DeepSeek
 - DeepSeek with Thinking
 - DeepSeek with Web Search
 - DeepSeek with Thinking + Web Search
 
-### 3. Qwen
+### 3. [Qwen](https://chat.qwen.ai/)
 - Qwen3-Max
 - Qwen3-Max with web search
 
