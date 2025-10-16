@@ -1,6 +1,6 @@
 
 # LLM Benchmarks  
-**The Largest Coding Benchmark for Large Language Models**
+**The Largest Coding Benchmark for Large Language Models [LLM]**
 
 ---
 
