@@ -2,8 +2,6 @@
 # LLM Benchmarks  
 **The Largest Coding Benchmark for Large Language Models [LLM]**
 
----
-
 ## Basic info about project
 
 ## Advanced information of project 
