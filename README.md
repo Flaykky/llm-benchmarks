@@ -7,7 +7,7 @@
 ## Advanced information of project 
 all info about project, which llms used in benchmarks, prompts and etc is in docs/
 
-## license 
+## Licence
 
 Distributed under the MIT License. See [LICENSE](LICENSE) file for details.
 
