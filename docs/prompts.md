@@ -1,3 +1,5 @@
+# prompts and llms used
+
 ## Table of Contents
 
 - [List of LLM Models](#llm-models)
@@ -209,88 +211,477 @@ we will test many llms from 11 companies:
 
 ## Task Prompts
 
-### 1. Algorithms – Extreme Optimization
+# 1. Algorithms — Extreme Optimization
 
-#### A1. Minimal Memory All-Pairs Shortest Paths
+### **A1. Minimal-Memory Multi-Source Shortest Paths**
 
-**Prompt:**  
-You are given a weighted directed graph with up to N = 20,000 vertices and M up to 200,000 edges. Implement an algorithm that computes all-pairs shortest paths **only for K specified source vertices** (K ≤ 1000) and returns distances to all vertices for those K sources. Memory is extremely limited: your program must not allocate more than 150 MB of heap memory. Time limit: target O(K * (M log N / 4)) — show optimizations that reduce constant factors. Provide both code and a short explanation of optimizations used.
+```txt
+You are a senior systems engineer focused on high-performance graph algorithms.
+Write in **{lang}** an implementation of multi-source shortest paths for a directed weighted graph:
+- N ≤ 20,000
+- M ≤ 200,000
+- K ≤ 1000 (sources)
 
-**Languages:** C, C++, Rust, Go  
-**Difficulty:** Very Hard  
-**Constraints:**
-- No external libraries except standard library
-- Memory usage ≤ 150 MB
-- Use memory pools / custom allocators
-- Code must fit within ~300 lines
+Requirements:
+- Use optimized Dijkstra per source.
+- Limit heap usage to ≤150 MB.
+- Use memory pools or custom allocators.
+- Favor compact adjacency layout and reduced constant factors.
+- Output distances for all K sources.
 
-**Acceptance Criteria:**
-- Correctness on random graphs
-- Peak memory under 150MB
-- Runtime within 2× of optimal Dijkstra per source
+Constraints:
+- No external libraries.
+- Code length ≤300 lines.
 
-**Approximate Lines:** 150–300
-
-#### A2. Cache-Friendly kd-tree for Nearest Neighbor
-
-**Prompt:**  
-Implement a static kd-tree for 3D points (N up to 10M) optimized for minimal cache misses and compact memory layout. Provide construction and k-NN query (k ≤ 16) APIs. Emphasize contiguous storage, iterative algorithms (no recursion), and branch-minimizing traversal. Explain memory layout choices.
-
-**Languages:** C, C++, Rust  
-**Difficulty:** Very Hard  
-**Constraints:**
-- No recursion
-- Data stored in a single contiguous block
-- Include microbenchmarks
-
-**Acceptance Criteria:**
-- Correct nearest neighbors on tests
-- Demonstrable cache miss reduction
-
-**Approximate Lines:** 200
+Output format:
+1. Code.
+2. Explanation of memory optimizations (<300 words).
+```
 
 ---
 
-### 2. Computer Science Theory / Miscellaneous
+### **A2. Cache-Friendly KD-Tree (3D, N ≤ 10M)**
 
-#### B1. Constraint Solver — SAT Solver Core Optimization
+```txt
+You are a performance engineer specializing in memory locality.
+Write in **{lang}** a static 3D kd-tree implementation with:
 
-**Prompt:**  
-Implement the core of a DPLL-style SAT solver with unit propagation, watched literals, non-chronological backtracking (learning a single clause per conflict). The solver must solve crafted SAT instances up to 10^6 variables/clauses efficiently. Provide APIs: `add_clause`, `solve`. Explain heuristics used.
+Requirements:
+- N up to 10 million points.
+- Single contiguous memory block for nodes.
+- No recursion (iterative build and search).
+- k-NN queries with k ≤ 16.
+- Minimize branches and cache misses.
+- Include a minimal microbenchmark suite.
 
-**Languages:** C, Rust, C++  
-**Difficulty:** Very Hard  
-**Constraints:**
-- Must implement watched literals
-- Iterative approach preferred
+Constraints:
+- No external libraries.
+- Output code ≤200 lines (not counting benchmarks).
 
-**Acceptance Criteria:**
-- Solve small CNF benchmarks
-- Demonstrate conflict-driven learning
-
-**Approximate Lines:** 200–300
-
-#### B2. Type Inference for a Small Functional Language
-
-**Prompt:**  
-Write a Hindley–Milner style type inference engine (including let-polymorphism and simple algebraic data types) for an ML-like language. Return principal type or error. Provide tests.
-
-**Languages:** OCaml, Haskell, Rust, Python  
-**Difficulty:** Hard  
-**Constraints:**
-- Prefer immutable data structures
-- Show Algorithm W
-
-**Acceptance Criteria:**
-- Correct principal types for provided expressions
-
-**Approximate Lines:** 150
+Output format:
+1. Code.
+2. Memory layout diagram (ASCII).
+3. Explanation (<300 words).
+```
 
 ---
 
-*(... continue with the rest of the tasks similarly formatted ...)*
+### **A3. SIMD-Optimized Matrix Multiply (Blocked)**
+
+```txt
+You are an expert in low-level optimization.
+Write in **{lang}** a blocked matrix multiplication implementation:
+
+Requirements:
+- Support matrices up to 8192x8192 (float32).
+- Use cache-friendly tiling.
+- Use intrinsics/SIMD available in the language.
+- Provide fallback for systems without vectorization.
+
+Constraints:
+- No external libraries.
+
+Output:
+Code + explanation (<300 words).
+```
 
 ---
+
+# 2. Computer Science Theory
+
+### **B1. SAT Solver Core (DPLL + Watched Literals + Learning)**
+
+```txt
+You are a compiler engineer specialized in formal logic.
+Write in **{lang}** a minimal DPLL SAT solver with:
+
+Requirements:
+- Watched literals.
+- Non-chronological backtracking.
+- One learned clause per conflict.
+- Efficient unit propagation.
+
+Constraints:
+- Handle up to 10^6 variables/clauses.
+- No recursion preferred.
+- No external libraries.
+
+Output:
+Code + explanation (<300 words).
+```
+
+---
+
+### **B2. Hindley–Milner Type Inference (Algorithm W)**
+
+```txt
+You are a functional programming researcher.
+Write in **{lang}** an implementation of Algorithm W for an ML-like language.
+
+Requirements:
+- Support let-polymorphism.
+- Support simple algebraic data types.
+- Return principal types or errors.
+- Provide 5 tests.
+
+Constraints:
+- Prefer immutable structures.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 3. Frontend (Next.js / React / Vanilla JS)
+
+### **C1. React Virtualized Table (100k rows)**
+
+```txt
+You are a frontend performance engineer.
+Write in **{lang} (JS/TS)** a React component implementing a virtualized table for 100,000 rows.
+
+Requirements:
+- Minimal re-renders.
+- Uses only windowing (no external libs).
+- Keyboard navigation.
+- Smooth scrolling.
+
+Output:
+JS/TS code + explanation.
+```
+
+---
+
+### **C2. Next.js SSR + Streaming API Endpoint**
+
+```txt
+You are a full-stack engineer.
+Write in **{lang}** a Next.js route that streams incremental JSON chunks to the browser.
+
+Requirements:
+- No external libraries.
+- Must work on the Edge runtime.
+- Include client-side code to consume the stream.
+
+Output:
+Server code + client code + explanation.
+```
+
+---
+
+# 4. Secure Coding
+
+### **D1. Hardened Input Parser (Memory-Safe)**
+
+```txt
+You are a security engineer.
+Write in **{lang}** a hardened parser for a custom binary protocol.
+
+Requirements:
+- Bounds checking for every field.
+- Reject malformed data.
+- Zero-copy where possible.
+
+Output:
+Code + brief threat model (<200 words).
+```
+
+---
+
+### **D2. Sandbox Executor**
+
+```txt
+You are a systems security architect.
+Write in **{lang}** a minimal sandbox for executing untrusted user code.
+
+Requirements:
+- Limit CPU time.
+- Limit memory.
+- No file system access.
+- No external libraries.
+
+Output:
+Code + explanation of isolation model.
+```
+
+---
+
+# 5. Mobile Development
+
+### **E1. Android Offline-First Notes App (Kotlin)**
+
+```txt
+You are a mobile developer.
+Write in Kotlin a minimal Android app:
+
+Requirements:
+- Compose UI.
+- Local encrypted storage.
+- Offline-first sync mock API.
+- ViewModel + Repository structure.
+
+Output:
+Code + architecture summary.
+```
+
+---
+
+### **E2. iOS SwiftUI Image Pipeline**
+
+```txt
+You are an iOS engineer.
+Write in Swift a SwiftUI async image loader with:
+
+Requirements:
+- Memory cache.
+- Disk cache.
+- Background decoding.
+- Cancellation support.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 6. Backend Systems
+
+### **F1. Go Microservice + Load Shedding**
+
+```txt
+You are a backend performance engineer.
+Write in Go a small HTTP service with:
+
+Requirements:
+- Adaptive load shedding.
+- Connection pooling.
+- Graceful shutdown.
+- Structured logging.
+
+Output:
+Code + explanation.
+```
+
+---
+
+### **F2. Java High-Throughput Queue Processor**
+
+```txt
+You are a JVM performance specialist.
+Write in Java a batch queue processor:
+
+Requirements:
+- Work-stealing.
+- Backpressure.
+- Metrics for latency and throughput.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 7. Desktop Applications (Win/Mac/Linux)
+
+### **G1. C# WPF Minimal Editor (Async I/O)**
+
+```txt
+You are a desktop engineer.
+Write in C# a WPF text editor with:
+
+Requirements:
+- Async file loading.
+- Undo/redo stack.
+- Autosave.
+
+Output:
+Code + explanation.
+```
+
+---
+
+### **G2. Cross-Platform File Watcher (Rust)**
+
+```txt
+You are a systems developer.
+Write in Rust a file-watcher using platform APIs:
+
+Requirements:
+- inotify on Linux
+- ReadDirectoryChangesW on Windows
+- FSEvents on macOS
+
+Output:
+Rust code + explanation.
+```
+
+---
+
+# 8. Pentest / Hardening
+
+*(все промты сформулированы так, чтобы быть техническими и безопасными)*
+
+### **H1. Secure TLS Configuration Auditor**
+
+```txt
+You are a security auditor.
+Write in **{lang}** a TLS configuration checker:
+
+Requirements:
+- Validate cipher suites.
+- Detect deprecated protocols.
+- Provide secure recommendations.
+
+Output:
+Code + explanation.
+```
+
+---
+
+### **H2. Container Isolation Analyzer**
+
+```txt
+You are a cloud security engineer.
+Write in **{lang}** a tool that inspects container runtime settings:
+
+Requirements:
+- Check namespaces.
+- Check capabilities.
+- Check cgroup limits.
+- Provide a safety score.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 9. Systems Programming
+
+### **I1. Custom Allocator (Arena)**
+
+```txt
+You are a low-level systems engineer.
+Write in **{lang}** a high-performance arena allocator:
+
+Requirements:
+- Single contiguous region.
+- Fast bump pointer.
+- Reset support.
+- Thread-safe variant.
+
+Output:
+Code + explanation.
+```
+
+---
+
+### **I2. Minimal Cooperative Scheduler**
+
+```txt
+You are an OS engineer.
+Write in **{lang}** a cooperative scheduler:
+
+Requirements:
+- Fibers/green threads.
+- Round-robin.
+- No OS threading primitives.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 10. Shell Scripts
+
+### **J1. Log Aggregator**
+
+```txt
+You are a DevOps engineer.
+Write in Bash a log aggregator with:
+
+Requirements:
+- Parallel tailing of multiple files.
+- Colored output.
+- Filtering by pattern.
+
+Output:
+Code + explanation.
+```
+
+---
+
+### **J2. Backup Verifier**
+
+```txt
+You are responsible for reliability.
+Write in Bash:
+
+Requirements:
+- Verify SHA256 of backup directories.
+- Incremental comparison.
+- Summary report.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 11. Game Development (Unreal/Unity/Godot)
+
+### **K1. Unity ECS Particle System**
+
+```txt
+You are a game engine engineer.
+Write in C# a Unity DOTS/ECS particle system:
+
+Requirements:
+- Burst-compiled.
+- Jobs system.
+- GPU-friendly layout.
+
+Output:
+Code + explanation.
+```
+
+---
+
+### **K2. Godot 4 Navigation AI**
+
+```txt
+You are an AI gameplay developer.
+Write in GDScript:
+
+Requirements:
+- Agent pathfinding.
+- Dynamic obstacle updates.
+- Smooth steering.
+
+Output:
+Code + explanation.
+```
+
+---
+
+# 12. Miscellaneous
+
+### **L1. Assembly Routine (SIMD String Compare)**
+
+```txt
+You are a low-level engineer.
+Write in Assembly a SIMD-accelerated string equality check.
+
+Requirements:
+- Compare up to 4k bytes.
+- Return first mismatch index or -1.
+
+Output:
+Code + explanation.
+```
+
 
 ## Evaluation System (Rubric)
 
@@ -346,3 +737,4 @@ Default weights for evaluation categories:
 4. Check constraint adherence (e.g., banned APIs)
 5. Review comments and threat models
 6. Evaluate modularization if task is large
+
