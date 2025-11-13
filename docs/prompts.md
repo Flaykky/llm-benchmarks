@@ -177,7 +177,7 @@ we will test many llms from 11 companies:
 
 ### 11. [Perplexity](https://www.perplexity.ai/)
 
-### 12. Mistral 
+### 12. [Mistral](https://mistral.ai/)
 
 ---
 
