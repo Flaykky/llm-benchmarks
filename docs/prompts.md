@@ -157,6 +157,7 @@ we will test many llms from 12 providers:
 ### 6. [Gemini](https://aistudio.google.com/)
 - Gemini 2.5 Flash
 - Gemini 2.5 Pro
+- Gemini 3.0 preview 
 
 ### 7. [Microsoft Copilot](https://copilot.microsoft.com/)
 - Copilot Fast Answer
