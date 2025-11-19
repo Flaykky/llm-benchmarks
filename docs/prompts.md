@@ -30,6 +30,11 @@ we will test many llms from 12 providers:
 - GPT-5 + Think Deeper
 - GPT-5 + Web Search
 
+- GPT 5.1
+
+- GPT 4o
+- GPT 4o-mini
+
 - [GPT-OSS-20B](https://gpt-oss.com/)
 - [GPT-OSS-120B](https://gpt-oss.com/)
 
