@@ -47,6 +47,8 @@ we will test many llms from 12 providers:
 ### 3. [Qwen](https://chat.qwen.ai/)
 - Qwen3-Max
 - Qwen3-Max with web search
+- Qwen3-Max with thinking 
+- Qwen3-Max with thining+web search
 
 - Qwen3-Coder
 - Qwen3-Coder with Web Search
