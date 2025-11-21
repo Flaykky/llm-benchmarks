@@ -186,6 +186,9 @@ we will test many llms from 12 providers:
 ### 11. [Perplexity](https://www.perplexity.ai/)
 
 ### 12. [Mistral](https://mistral.ai/)
+- Mistral research
+- Mistral + thinking
+
 
 ---
 
@@ -747,4 +750,5 @@ Default weights for evaluation categories:
 4. Check constraint adherence (e.g., banned APIs)
 5. Review comments and threat models
 6. Evaluate modularization if task is large
+
 
