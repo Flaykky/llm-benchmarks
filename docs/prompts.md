@@ -136,12 +136,13 @@ we will test many llms from 12 providers:
 - Grok4 + DeepSearch
 - Grok4 Heavy
 - Grok4 Heavy + DeepSearch
+- Grok4.1 preview
 
 ### 5. [Claude](https://claude.ai/)
-- Claude Sonnet 4.1
-- Claude Sonnet 4.1 with Web Search
-- Claude Sonnet 4.1 with Extended Thinking
-- Claude Sonnet 4.1 with Web Search + Extended Thinking
+- Claude Sonnet 4.5
+- Claude Sonnet 4.5 with Web Search
+- Claude Sonnet 4.5 with Extended Thinking
+- Claude Sonnet 4.5 with Web Search + Extended Thinking
 - Claude Sonnet 4
 - Claude Sonnet 4 with Web Search
 - Claude Sonnet 4 with Extended Thinking
@@ -750,5 +751,6 @@ Default weights for evaluation categories:
 4. Check constraint adherence (e.g., banned APIs)
 5. Review comments and threat models
 6. Evaluate modularization if task is large
+
 
 
