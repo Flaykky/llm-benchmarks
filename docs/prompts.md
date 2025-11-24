@@ -187,8 +187,9 @@ we will test many llms from 12 providers:
 ### 11. [Perplexity](https://www.perplexity.ai/)
 
 ### 12. [Mistral](https://mistral.ai/)
+- Mistral default
 - Mistral research
-- Mistral + thinking
+- Mistral thinking
 
 
 ---
