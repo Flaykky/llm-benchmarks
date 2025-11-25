@@ -755,3 +755,12 @@ Default weights for evaluation categories:
 
 
 
+
+## additional tests:
+
+- censorship/difficult of bypassing 
+- cs theory [COMPUTER SCIENCE]
+- working in a big repository 
+- working by a documentation (attached file)
+- DevOps
+- working with team skills 
