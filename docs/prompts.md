@@ -773,5 +773,5 @@ Default weights for evaluation categories:
 - working with team skills 
 - learning someone 
 - planning project
-- do project via plan 
-- planning and do project
+- do project with a plan 
+- planning and doing project
