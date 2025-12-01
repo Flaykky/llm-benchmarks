@@ -775,3 +775,5 @@ Default weights for evaluation categories:
 - planning project
 - do project with a plan 
 - planning and doing project
+- Quality of web searching
+
