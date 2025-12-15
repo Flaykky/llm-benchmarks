@@ -174,6 +174,8 @@ we will test many llms from 12 providers:
 - Gemini 3.0 preview 
 - Gemini 3.0 preview + google search
 
+### 6.5 Gemma
+
 ### 7. [Microsoft Copilot](https://copilot.microsoft.com/)
 - Copilot Fast Answer
 - Copilot Think Deeper
@@ -198,6 +200,7 @@ we will test many llms from 12 providers:
 - Mistral research
 - Mistral thinking
 
+### 13. Manus 
 
 ---
 
