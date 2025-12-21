@@ -23,7 +23,7 @@
 
 ## LLM Models
 
-we will test many llms from 12 providers:
+we will test llms from 13 AI providers:
 
 ### 1. [OpenAI](https://chatgpt.com)
 - GPT-5
