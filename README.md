@@ -1,6 +1,6 @@
 
 # LLM Benchmarks  
-**The Coding, IT activities , censorship Benchmark for Large Language Models [LLM]**
+**The Coding, IT activities, censorship, jailbreak Benchmark for Large Language Models [LLM]**
 
 ## Basic info about project
 benchmarks of many models from 13 llm providers in coding, coding promots including all popular themes like frontend, backend and etc
