@@ -7,7 +7,7 @@ benchmarks of many models from 13 llm providers in coding, coding promots includ
 
 
 ## Advanced information of project 
-all info about project, which llms used in benchmarks, prompts and etc is in docs/
+all info about project, which llms were used in benchmarks, prompts and etc is in docs/prompts.md
 
 ## License
 
