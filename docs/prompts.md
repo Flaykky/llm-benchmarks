@@ -200,7 +200,7 @@ we will test many llms from 13 biggest LLM providers:
 - Mistral research
 - Mistral thinking
 
-### 13. Manus 
+### 13. [Manus](https://manus.im/)
 
 ---
 
