@@ -231,6 +231,7 @@ we will test many llms from 13 biggest LLM providers:
 9. **Lisp/Haskell** – functional programming
 10. **Bash** – shell scripting
 11. **Assembly** – low-level performance tuning
+12. **Lua**
 
 ---
 
