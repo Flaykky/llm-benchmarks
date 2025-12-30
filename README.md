@@ -3,7 +3,7 @@
 **The Coding, IT activities, censorship, jailbreakability Benchmark for Large Language Models [LLM]**
 
 ## Basic info about project
-benchmarks of many models from 13 llm providers in coding, coding promots including all popular themes like frontend, backend and etc
+benchmarks of many models from 13 llm providers in coding and other, coding promots including all popular themes and languages like frontend, backend and etc
 
 
 ## Advanced information of project 
