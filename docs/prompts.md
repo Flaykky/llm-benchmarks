@@ -30,7 +30,7 @@ we will test many llms from 13 biggest LLM providers:
 - GPT-5 + Think Deeper
 - GPT-5 + Web Search
 
-- GPT 5.1
+- GPT 5.2
 
 - GPT 4o
 - GPT 4o-mini
