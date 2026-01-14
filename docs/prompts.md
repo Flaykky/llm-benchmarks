@@ -37,6 +37,7 @@ we will test many llms from 13 biggest LLM providers:
 
 - [GPT-OSS-20B](https://gpt-oss.com/)
 - [GPT-OSS-120B](https://gpt-oss.com/)
+(max reasoning)
 
 ### 2. [DeepSeek](https://chat.deepseek.com/)
 - DeepSeek
