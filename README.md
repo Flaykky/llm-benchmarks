@@ -9,7 +9,7 @@ benchmarks of many models from 13 llm providers in coding and other, coding prom
 
 - IT (12+ topics of coding provided at  (docs/prompts.md)[docs/prompts.md]
 - jailbreaking
-- 
+
 
 ## Advanced information of project 
 all info about project, which llms were used in benchmarks, prompts and etc is in (docs/prompts.md)[docs/prompts.md]
