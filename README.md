@@ -8,7 +8,7 @@ benchmarks of many models from 13 llm providers in coding and other, coding prom
 ## testes
 
 - IT (12+ topics of coding provided at  (docs/prompts.md)[docs/prompts.md]
-- censor and jailbreakint
+- censor and jailbreaking
 
 
 ## Advanced information of project 
