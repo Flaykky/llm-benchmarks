@@ -219,7 +219,9 @@ we will test many llms from 13 biggest LLM providers:
 9. Systems programming
 10. Shell scripting
 11. Game development (Unreal Engine, Unity, Godot)
-
+12. planning project
+13. doing project without a plan
+14. doing a plan of project and project
 ### Programming Languages:
 1. **Python** – widely supported by LLMs
 2. **C** – requires careful memory management
